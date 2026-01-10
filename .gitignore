@@ -1,0 +1,209 @@
+# Laravel & PHP
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+
+# Storage - Keep structure but ignore contents
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+
+# Optional: Comment out if you want to keep uploaded photos in Git
+# /storage/app/public/photos/*
+# !/storage/app/public/photos/.gitkeep
+
+# Bootstrap cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# Build files
+/public/build
+/public/css/app.css
+/public/js/app.js
+/public/mix-manifest.json
+
+# IDE - PhpStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# IDE - Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Composer
+composer.phar
+composer.lock
+/vendor/
+
+# NPM / Yarn
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Testing
+/coverage
+.phpunit.result.cache
+/.phpunit.cache
+
+# Laravel Mix
+/public/mix-manifest.json
+
+# Laravel Nova
+/nova
+
+# Backup files
+*.sql
+*.sql.gz
+*.bak
+*.backup
+*.old
+
+# Logs
+*.log
+laravel.log
+
+# Documentation helper files (optional)
+# /_ide_helper.php
+# /.phpstorm.meta.php
+# /_ide_helper_models.php
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Certificate files (IMPORTANT - Never commit these!)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Environment files (IMPORTANT - Never commit these!)
+.env
+.env.*
+!.env.example
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# PHP
+*.php~
+*.php.bak
+
+# Config files with sensitive data
+/config/database.php.backup
+/config/mail.php.backup
+
+# Public storage symlink (will be recreated by artisan storage:link)
+/public/storage
+
+# Compiled assets
+/public/css/
+/public/js/
+/public/fonts/
+
+# Keep certain public files
+!/public/css/.gitkeep
+!/public/js/.gitkeep
+!/public/fonts/.gitkeep
+
+# Laravel Telescope
+/storage/telescope
+
+# Laravel Horizon
+/storage/horizon
+
+# Laravel Debugbar
+/storage/debugbar
+
+# Ignore all files in storage/app except certain folders
+/storage/app/*
+!/storage/app/.gitignore
+!/storage/app/public/
+# Keep the photos structure but you can choose to ignore the actual images
+# Uncomment the next line if you want to ignore uploaded photos
+# /storage/app/public/photos/
+
+# Cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# Session files
+/storage/framework/sessions/*
+
+# Compiled views
+/storage/framework/views/*
+
+# Various
+/.vagrant
+/.fleet
+/.env.*.php
+/.env.php
+/auth.json
+
+# Rocketeer PHP task runner and deployment package
+.rocketeer/
