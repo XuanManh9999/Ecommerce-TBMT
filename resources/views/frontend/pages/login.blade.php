@@ -63,7 +63,7 @@
                                         <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Nhớ tài khoản</label>
                                     </div>
                                     @if (Route::has('password.request'))
-                                        <a class="lost-pass" href="{{ route('password.reset') }}">
+                                        <a class="lost-pass" href="{{ route('password.request') }}">
                                             Quên mật khẩu?
                                         </a>
                                     @endif
@@ -105,3 +105,4 @@
     }
 </style>
 @endpush
+

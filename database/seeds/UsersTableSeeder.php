@@ -13,16 +13,23 @@ class UsersTableSeeder extends Seeder
     {
         $data=array(
             array(
-                'name'=>'CodeAstro',
-                'email'=>'admin@mail.com',
-                'password'=>Hash::make('codeastro.com'),
+                'name'=>'Admin',
+                'email'=>'admin@gmail.com',
+                'password'=>Hash::make('admin123'),
                 'role'=>'admin',
                 'status'=>'active'
             ),
             array(
-                'name'=>'Customer A',
-                'email'=>'customer@mail.com',
-                'password'=>Hash::make('codeastro.com'),
+                'name'=>'User Demo',
+                'email'=>'user@gmail.com',
+                'password'=>Hash::make('user123'),
+                'role'=>'user',
+                'status'=>'active'
+            ),
+            array(
+                'name'=>'Nguyễn Văn A',
+                'email'=>'nguyenvana@gmail.com',
+                'password'=>Hash::make('password123'),
                 'role'=>'user',
                 'status'=>'active'
             ),

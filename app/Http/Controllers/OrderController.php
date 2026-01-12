@@ -114,7 +114,8 @@ class OrderController extends Controller
         return redirect()->route('home');
     } else {
         // Xử lý nếu đơn hàng không thể lưu
-        dd('Error: Failed to save order.');
+        request()->session()->flash('error', 'Failed to save order. Please try again!');
+        return redirect()->back();
     }
 }
 public function qrPayment($id, $order_number, $total_amount)
