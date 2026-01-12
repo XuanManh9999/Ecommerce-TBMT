@@ -36,16 +36,7 @@
 								<form class="form-contact form contact_form" method="post" action="{{route('contact.store')}}" id="contactForm" novalidate="novalidate">
 								<div class="map-section">
     <div id="myMap">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5887297749975!2d105.8497332!3d21.0090498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9fbebf36f7%3A0xb4ebd3eb4f8742a6!2zMTIzIFBoYW4gQ2jhu41uIFRyaW5oLCBI4bqjaSBCw6AgVHJ1bmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1698260000000!5m2!1svi!2s"
-            width="100%"
-            height="100%"
-            frameborder="0"
-            style="border:0;"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0">
-        </iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8168145559307!2d105.73938337471469!3d21.040014487393055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135096b31fa7abb%3A0xff645782804911af!2zVHLGsOG7nW5nIMSR4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgxJDDtG5nIMOB!5e0!3m2!1svi!2s!4v1768192116022!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 
