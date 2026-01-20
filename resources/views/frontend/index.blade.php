@@ -13,12 +13,7 @@
         <div class="carousel-inner" role="listbox">
                 @foreach($banners as $key=>$banner)
                 <div class="carousel-item {{(($key==0)? 'active' : '')}}">
-                    <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block text-left">
-                        <h1 class="wow fadeInDown">{{$banner->title}}</h1>
-                        <p>{!! html_entity_decode($banner->description) !!}</p>
-                        <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
-                    </div>
+                    <img class="first-slide" src="{{$banner->photo}}" alt="{{$banner->title}}">
                 </div>
             @endforeach
         </div>
@@ -517,40 +512,267 @@
 @push('styles')
     <style>
         /* Banner Sliding */
+        #Gslider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
         #Gslider .carousel-inner {
-        background: #000000;
-        color:black;
+            background: #f5f5f5;
+            position: relative;
         }
 
-        #Gslider .carousel-inner{
-        height: 550px;
+        #Gslider .carousel-item {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 400px;
         }
-        #Gslider .carousel-inner img{
+
+        #Gslider .carousel-inner img {
             width: 100% !important;
-         /*   opacity: .8; */
+            height: auto !important;
+            max-height: 650px;
+            display: block;
+            object-fit: contain;
+            background: #f5f5f5;
         }
 
-        #Gslider .carousel-inner .carousel-caption {
-        bottom: 60%;
-        display: none !important;
+        #Gslider .carousel-caption {
+            position: absolute;
+            bottom: 25% !important;
+            left: 8%;
+            right: auto;
+            text-align: left;
+            z-index: 10;
+            padding: 20px;
         }
 
-        #Gslider .carousel-inner .carousel-caption h1 {
-        font-size: 50px;
-        font-weight: bold;
-        line-height: 100%;
-        /* color: #F7941D; */
-        color: #1e1e1e;
+        #Gslider .carousel-caption h1 {
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s;
         }
 
-        #Gslider .carousel-inner .carousel-caption p {
-        font-size: 18px;
-        color: black;
-        margin: 28px 0 28px 0;
+        #Gslider .carousel-caption p {
+            font-size: 18px;
+            color: #ffffff;
+            margin: 15px 0 25px 0;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        #Gslider .carousel-caption .ws-btn {
+            background: #F7941D;
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 148, 29, 0.5);
+            display: inline-block;
+        }
+
+        #Gslider .carousel-caption .ws-btn:hover {
+            background: #e67e00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 148, 29, 0.7);
+            text-decoration: none;
         }
 
         #Gslider .carousel-indicators {
-        bottom: 70px;
+            bottom: 20px;
+            z-index: 15;
+            margin-bottom: 10px;
+        }
+
+        #Gslider .carousel-indicators li {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(247, 148, 29, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        #Gslider .carousel-indicators li.active {
+            background-color: #F7941D;
+            width: 14px;
+            height: 14px;
+            border-color: #F7941D;
+        }
+
+        #Gslider .carousel-control-prev,
+        #Gslider .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(247, 148, 29, 0.9);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        #Gslider .carousel-control-prev:hover,
+        #Gslider .carousel-control-next:hover {
+            opacity: 1;
+            background: rgba(247, 148, 29, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        #Gslider .carousel-control-prev {
+            left: 20px;
+        }
+
+        #Gslider .carousel-control-next {
+            right: 20px;
+        }
+
+        #Gslider .carousel-control-prev-icon,
+        #Gslider .carousel-control-next-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1199px) {
+            #Gslider .carousel-caption {
+                bottom: 20% !important;
+                left: 5%;
+            }
+
+            #Gslider .carousel-caption h1 {
+                font-size: 40px;
+            }
+
+            #Gslider .carousel-caption p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #Gslider .carousel-item {
+                min-height: 350px;
+            }
+
+            #Gslider .carousel-inner img {
+                max-height: 500px;
+            }
+
+            #Gslider .carousel-caption {
+                bottom: 15% !important;
+                left: 5%;
+                padding: 15px;
+            }
+
+            #Gslider .carousel-caption h1 {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            #Gslider .carousel-caption p {
+                font-size: 15px;
+                margin: 10px 0 20px 0;
+            }
+
+            #Gslider .carousel-caption .ws-btn {
+                padding: 12px 28px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #Gslider .carousel-item {
+                min-height: 280px;
+            }
+
+            #Gslider .carousel-inner img {
+                max-height: 400px;
+            }
+
+            #Gslider .carousel-caption {
+                bottom: 10% !important;
+                left: 5%;
+                right: 5%;
+                padding: 12px;
+            }
+
+            #Gslider .carousel-caption h1 {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            #Gslider .carousel-caption p {
+                font-size: 13px;
+                margin: 8px 0 15px 0;
+            }
+
+            #Gslider .carousel-caption .ws-btn {
+                padding: 10px 22px;
+                font-size: 13px;
+            }
+
+            #Gslider .carousel-control-prev,
+            #Gslider .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+
+            #Gslider .carousel-control-prev-icon,
+            #Gslider .carousel-control-next-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            #Gslider .carousel-item {
+                min-height: 220px;
+            }
+
+            #Gslider .carousel-inner img {
+                max-height: 300px;
+            }
+
+            #Gslider .carousel-caption {
+                bottom: 8% !important;
+                left: 3%;
+                right: 3%;
+                padding: 10px;
+            }
+
+            #Gslider .carousel-caption h1 {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            #Gslider .carousel-caption p {
+                font-size: 12px;
+                margin: 5px 0 12px 0;
+                max-width: 100%;
+            }
+
+            #Gslider .carousel-caption .ws-btn {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+
+            #Gslider .carousel-control-prev {
+                left: 10px;
+            }
+
+            #Gslider .carousel-control-next {
+                right: 10px;
+            }
         }
     </style>
 @endpush
