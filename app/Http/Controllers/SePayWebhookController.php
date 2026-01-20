@@ -58,8 +58,8 @@ class SePayWebhookController extends Controller
         // Tìm và cập nhật đơn hàng
         $order = DB::table('orders')
             ->where('id', $payOrderId)
-            ->where('total', $amountIn)
-            ->where('payment_status', 'Unpaid')
+            ->where('total_amount', $amountIn)
+            ->where('payment_status', 'unpaid')
             ->first();
 
         if (!$order) {
@@ -68,7 +68,7 @@ class SePayWebhookController extends Controller
 
         DB::table('orders')
             ->where('id', $payOrderId)
-            ->update(['payment_status' => 'Paid']);
+            ->update(['payment_status' => 'paid']);
 
         return response()->json(['success' => true]);
     }

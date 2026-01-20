@@ -76,10 +76,10 @@ class OrderController extends Controller
         $order_data['payment_status'] = 'paid';
     } elseif (request('payment_method') == 'qrpay') {
         $order_data['payment_method'] = 'qrpay';
-        $order_data['payment_status'] = 'Unpaid';
+        $order_data['payment_status'] = 'unpaid';
     } else {
         $order_data['payment_method'] = 'cod';
-        $order_data['payment_status'] = 'Unpaid';
+        $order_data['payment_status'] = 'unpaid';
     }
 
     // Gán dữ liệu vào đối tượng Order và lưu

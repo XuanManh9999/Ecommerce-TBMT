@@ -21,7 +21,7 @@
         <div class="payment-option">
             <p>Cách 1: Mở app ngân hàng và quét mã QR</p>
             <div class="text-center my-3">
-                <img src="https://qr.sepay.vn/img?bank=ACB&acc=18721251&template=compact&amount={{$total_amount}}&des={{ $order_number }}" alt="QR Code">
+                <img src="https://qr.sepay.vn/img?bank=VietinBank&acc=103873329209&template=compact&amount={{$total_amount}}&des={{ $order_number }}" alt="QR Code">
                 <p class="mt-2">
                 <td><span class="fw-bold">Tổng</span></td>
                 <td class="text-end fw-bold">{{ number_format($total_amount, 0, ',', '.') }}₫</td>
@@ -35,18 +35,19 @@
         <div class="payment-option">
             <p>Cách 2: Chuyển khoản thủ công theo thông tin</p>
             <div class="text-center my-3">
-                <img src="https://qr.sepay.vn/assets/img/banklogo/MB.png" alt="Bank Logo" style="max-height: 50px;">
-                <p>Ngân hàng MBBank</p>
+            <img src='https://qr.sepay.vn/img?acc=103873329209&bank=VietinBank&amount={{$total_amount}}&des={{ $order_number }}'/>
+
+                <p>Ngân hàng VietinBank</p>
             </div>
             <table class="table">
                 <tbody>
                     <tr>
                         <td>Chủ tài khoản:</td>
-                        <td><b>Nguyễn Văn Hậu</b></td>
+                        <td><b>NGUYEN QUANG THANG</b></td>
                     </tr>
                     <tr>
                         <td>Số TK:</td>
-                        <td><b>88806072003</b></td>
+                        <td><b>103873329209</b></td>
                     </tr>
                     <tr>
                         <td>Số tiền:</td>
@@ -196,10 +197,10 @@
                     url: "https://payment-gateway-demo.sepay.dev/check_payment_status.php",
                     dataType:"json",
                     success: function(data){
-                        if(data.payment_status == "Paid") {
+                        if(data.payment_status == "Paid" || data.payment_status == "paid") {
                             $("#checkout_box").hide();
                             $("#success_pay_box").show();
-                            pay_status = 'Paid';
+                            pay_status = 'paid';
                         }
                     }
                   });
